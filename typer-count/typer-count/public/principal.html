@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Typer Count</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Typer Count</h1>
+    <p class="MainText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut neque non augue semper tempor. Nulla eu est vel elit mollis ullamcorper. In eu aliquet erat, vitae efficitur arcu. Cras vel metus eget nunc vestibulum condimentum ac nec nibh. Nullam eu ultricies tortor. Donec rhoncus massa eget dolor ultricies, eget egestas augue placerat. Duis maximus, felis quis fermentum malesuada, purus massa placerat nibh, sit amet auctor neque magna at nunc. Aliquam ut diam sit amet orci volutpat rhoncus. Nullam in facilisis lacus. Donec justo sapien, convallis vulputate turpis vel, ultricies convallis augue. Fusce tempor dictum laoreet. Nullam eget aliquet ligula. Sed bibendum eros ut nisl bibendum sagittis.
+    </p>
+
+    <ul class="text-info">
+      <li>
+        <i class="small material-icons icon">description</i>
+        <span id="word-count">40</span> words
+      </li>
+      <li>
+        <i class="small material-icons icon">access_alarm</i>
+        <span id="play-time">3</span> seconds
+      </li>
+    </ul>
+
+    <div class="buttons">
+        <a class="btn-floating btn-large waves-effect waves-light red" id="reset-button">
+          <i class="material-icons">restore</i></a>
+    </div>
+
+    <textarea class="player-text" rows="8" cols="40"></textarea>
+
+    <ul class="score-info">
+      <li><span id="player-chars">40</span> characteres</li>
+      <li><span id="player-words">40</span> words</li>
+    </ul>
+
+    <section class="scoreboard">
+      <h3 class="center">Scoreboard</h3>
+      <table class="centered bordered">
+        <thead class="score-thead">
+          <tr>Name</tr>
+          <tr>Score</tr>
+          <tr>Remove</tr>
+        </thead>
+        <tbody>
+          <td>Name</td>
+          <td>Score</td>
+          <td>Remove</td>
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/scoreboard.js"></script>
+</body>
+</html>

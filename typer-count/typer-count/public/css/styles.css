@@ -1,0 +1,40 @@
+.MainText{
+  width:100%;
+  position: center;
+  font-size: 130%;
+}
+.titulo{
+  text-align: center;
+  font-size: 400%;
+}
+.text-info{
+  text-align: center;
+  font-size: 110%;
+}
+.score-info{
+  text-align: center;
+  font-size: 110%;
+}
+.player-text{
+  width:100%;
+  position: center;
+  font-size: 120%;
+  border: 3px solid black;
+}
+.disableText{
+  background-color: lightgray;
+}
+.icon{
+  vertical-align: middle;
+}
+.wrong-text{
+  border: 3px solid red;
+}
+.correct-text{
+  border: 3px solid green;
+}
+.score-thead{
+  position: center;
+  font-size: 120%;
+  border: 3px solid black;
+}
