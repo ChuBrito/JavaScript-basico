@@ -38,3 +38,6 @@
   font-size: 120%;
   border: 3px solid black;
 }
+body{
+  overflow: scroll;
+}

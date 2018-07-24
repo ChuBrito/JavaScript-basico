@@ -2,6 +2,7 @@ var textWordsCount = $("#word-count");
 var initialTime = $("#play-time").text();
 var playerText = $(".player-text");
 var mainText = $(".MainText");
+var playTimer = $("#play-time")
 
 $(function(){
     textUpdate();
@@ -9,8 +10,11 @@ $(function(){
     startTimer();
     wordsVerifier();
     $("#reset-button").click(gameReset);
-
 });
+
+function timeUpdate(newtime){
+  playTimer.text(newtime);
+}
 
 function textUpdate(){
   var totalTextWords = mainText.text().split(" ").length;

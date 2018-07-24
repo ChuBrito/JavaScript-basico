@@ -1,3 +1,5 @@
+$("#scoreboard-button").click(showScoreboard);
+
 function scoreboardInsert(){
   var scoreTable = $(".scoreboard").find("tbody");
   var scoreName = "Felipe";
@@ -28,5 +30,21 @@ function addLineScore(scoreName, finalScore){
 
 function lineRemove(){
     event.preventDefault();
-    $(this).parent().parent().remove();
+    var td = $(this).parent().parent();
+    td.fadeOut(800);
+    setTimeout(function(){
+      td.remove();
+    },800);
+}
+
+function showScoreboard(){
+  $(".scoreboard").stop().slideToggle(600);
+}
+
+function scrollScoreboard(){
+  $("#scoreboard").slideDown();
+  var scoreboardPosition = $(".scoreboard").offset().top;
+  $("body").animate({
+    scrollTop: scoreboardPosition+"px"
+  }, 1000);
 }
