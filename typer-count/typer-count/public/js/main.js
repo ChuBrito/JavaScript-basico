@@ -1,19 +1,23 @@
 var textWordsCount = $("#word-count");
-var initialTime = $("#play-time").text();
+var initialTime = $("#play-time");
 var playerText = $(".player-text");
 var mainText = $(".MainText");
-var playTimer = $("#play-time")
+var playTimer = $("#play-time").text();
+var playerName = $("#id-name");
 
 $(function(){
+    playerName.text("Player");
     textUpdate();
     scoreUpdate();
-    startTimer();
+    startTimer(initialTime.text());
     wordsVerifier();
+    //loadDatabase();
     $("#reset-button").click(gameReset);
 });
 
 function timeUpdate(newtime){
-  playTimer.text(newtime);
+  initialTime.text(newtime);
+  playTimer = newtime.text();
 }
 
 function textUpdate(){
@@ -31,16 +35,14 @@ function scoreUpdate(){
   });
 }
 
-function startTimer(){
-  var playTime = $("#play-time").text();
+function startTimer(newtime){
   playerText.one("focus", function(){
     var decayTime = setInterval(function(){
-      playTime --;
-      $("#play-time").text(playTime);
-      if(playTime < 1){
+      newtime --;
+      $("#play-time").text(newtime);
+      if(newtime < 1){
         clearInterval(decayTime);
         finalGame();
-
       }
     },1000)
   });
@@ -50,8 +52,6 @@ function wordsVerifier(){
   playerText.on("input", function(){
     var typedByPlayer = playerText.val();
     var textToCompare = mainText.text().substr(0, typedByPlayer.length);
-    console.log(textToCompare);
-    console.log(typedByPlayer);
     if(typedByPlayer == textToCompare){
       playerText.addClass("correct-text");
       playerText.removeClass("wrong-text");
@@ -63,13 +63,16 @@ function wordsVerifier(){
 }
 
 function gameReset(){
+  var timer = playTimer;
+
   playerText.attr("disabled", false);
   playerText.val("");
   $("#player-words").text("0");
   $("#player-chars").text("0");
-  $("#play-time").text(initialTime);
-  startTimer();
-  playerText.removeClass("disableText")
+  $("#play-time").text(timer);
+  playerName.text("");
+  startTimer(timer);
+  playerText.removeClass("disableText");
   playerText.removeClass("wrong-text");
   playerText.removeClass("correct-text");
 }

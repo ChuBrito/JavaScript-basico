@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+
     <meta charset="UTF-8">
     <title>Typer Count</title>
     <link rel="stylesheet" href="css/libs/materialize.min.css">
@@ -10,8 +11,16 @@
 <body>
   <div class="container">
     <h1 class="titulo">Typer Count</h1>
-    <p class="MainText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut neque non augue semper tempor. Nulla eu est vel elit mollis ullamcorper. In eu aliquet erat, vitae efficitur arcu. Cras vel metus eget nunc vestibulum condimentum ac nec nibh. Nullam eu ultricies tortor. Donec rhoncus massa eget dolor ultricies, eget egestas augue placerat. Duis maximus, felis quis fermentum malesuada, purus massa placerat nibh, sit amet auctor neque magna at nunc. Aliquam ut diam sit amet orci volutpat rhoncus. Nullam in facilisis lacus. Donec justo sapien, convallis vulputate turpis vel, ultricies convallis augue. Fusce tempor dictum laoreet. Nullam eget aliquet ligula. Sed bibendum eros ut nisl bibendum sagittis.
+    <p class="MainText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut neque non augue semper tempor. Nulla eu est vel elit mollis ullamcorper. In eu aliquet erat, vitae efficitur arcu. Cras vel metus eget nunc vestibulum condimentum ac nec nibh.
+      Nullam eu ultricies tortor. Donec rhoncus massa eget dolor ultricies, eget egestas augue placerat. Duis maximus, felis quis fermentum malesuada, purus massa placerat nibh, sit amet auctor neque magna at nunc. Aliquam ut diam sit amet orci volutpat rhoncus.
     </p>
+    <div class="displayers center">
+      <img src="img/spinner.gif" alt="Spinner" id="spinner">
+      <p id="error" class="error"> Oops, Houston, we have a problem, please try again. </p>
+      <p id="complete" class="correct"> Scoreboard Synchronized </p>
+      <p id="done" class="correct">Nome Salvo</p>
+      <p id="name-error" class="error"> Please tell me your name </p>
+    </div>
 
     <ul class="text-info">
       <li>
@@ -24,6 +33,18 @@
       </li>
     </ul>
 
+    <div class="Name-container">
+      <input type="text" id="id-name" placeholder="Digite o nome">
+      <a class="btn-floating btn-large waves-effect waves-light blue" id="name-button">
+        <i class="material-icons">account_circle</i>
+      </a>
+      <a class="btn-floating btn-large waves-effect waves-light blue" id="sync-button">
+          <i class="material-icons">sync</i>
+      </a>
+    </div>
+
+    <textarea class="player-text" rows="8" cols="40"></textarea>
+
     <div class="buttons center">
         <a class="btn-floating btn-large waves-effect waves-light red" id="reset-button">
           <i class="material-icons">restore</i>
@@ -34,9 +55,11 @@
         <a class="btn-floating btn-large waves-effect waves-light yellow" id="text-button">
             <i class="material-icons">shuffle</i>
         </a>
-    </div>
-
-    <textarea class="player-text" rows="8" cols="40"></textarea>
+        <a class="btn-floating btn-large waves-effect waves-light blue" id="search-button">
+            <i class="material-icons">search</i>
+        </a>
+        <input type="number" id="id-text" min="0">
+      </div>
 
     <ul class="score-info">
       <li><span id="player-chars">40</span> characteres</li>
@@ -45,11 +68,12 @@
 
     <section class="scoreboard">
       <h3 class="center">Scoreboard</h3>
+
       <table class="centered bordered">
         <thead class="score-thead">
-          <tr>Name</tr>
-          <tr>Score</tr>
-          <tr>Remove</tr>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Remove</th>
         </thead>
         <tbody>
           <td>Name</td>
@@ -65,5 +89,6 @@
   <script src="js/main.js"></script>
   <script src="js/scoreboard.js"></script>
   <script src="js/texts.js"></script>
+  <script src="js/user.js"></script>
 </body>
 </html>

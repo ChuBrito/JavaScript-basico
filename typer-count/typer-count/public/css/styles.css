@@ -16,11 +16,17 @@
   font-size: 110%;
 }
 .player-text{
-  width:100%;
+  width:95%;
+  height: 8%;
   position: center;
   font-size: 120%;
   border: 3px solid black;
 }
+.scoreboard{
+  width: 95%;
+  position: center;
+}
+
 .disableText{
   background-color: lightgray;
 }
@@ -40,4 +46,33 @@
 }
 body{
   overflow: scroll;
+}
+.error{
+  color: red;
+  font-weight: bold;
+}
+#error{
+  display: none;
+}
+#name-error{
+  display: none;
+}
+#spinner{
+  display: none;
+}
+#id-name{
+  width:20%;
+}
+#id-text{
+  width: 3%;
+}
+.correct{
+  color: green;
+  font-weight: bold;
+}
+#done{
+  display: none;
+}
+#complete{
+  display: none;
 }

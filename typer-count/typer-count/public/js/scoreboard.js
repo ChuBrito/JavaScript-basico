@@ -1,8 +1,9 @@
 $("#scoreboard-button").click(showScoreboard);
+$("#sync-button").click(syncScoreboard);
 
 function scoreboardInsert(){
   var scoreTable = $(".scoreboard").find("tbody");
-  var scoreName = "Felipe";
+  var scoreName = playerName.text();
   var finalScore = $("#player-words").text();
 
   var newLine = addLineScore(scoreName, finalScore);
@@ -47,4 +48,48 @@ function scrollScoreboard(){
   $("body").animate({
     scrollTop: scoreboardPosition+"px"
   }, 1000);
+}
+
+function syncScoreboard(){
+  var scoreArray = [];
+  var lines = $("tbody>tr");
+
+  lines.each(function(){
+      var userName = $(this).find("td:nth-child(1)").text();
+      var scorePoints = $(this).find("td:nth-child(2)").text();
+
+      var score = {
+        usuario: userName,
+        pontos: scorePoints
+      };
+      scoreArray.push(score);
+
+    });
+    var data = {
+      placar: scoreArray
+    };
+  $.post("http://localhost:3000/placar", data, showMsg).fail(showError);
+}
+
+function showMsg(msg){
+  if (msg == 1){
+    $("#complete").toggle();
+    setTimeout(function(){
+      $("#complete").toggle();
+    },2000);
+  }else{
+    $("#correct").toggle();
+    setTimeout(function(){
+      $("#correct").toggle();
+    },2000);
+  }
+}
+
+function loadDatabase(){
+  $.get("http://localhost:3000/placar", function(data){
+    $(data).each(function(){
+      var line = newline(this.usuario, this.tempo,);
+      $("tbody").append(line);
+    });
+  });
 }
